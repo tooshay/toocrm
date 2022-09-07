@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAccountContactRequest;
-use App\Http\Requests\UpdateAccountContactRequest;
-use App\Models\AccountContact;
+use App\Http\Requests\StoreFeeProposalRequest;
+use App\Http\Requests\UpdateFeeProposalRequest;
+use App\Models\FeeProposal;
 
-class AccountContactController extends Controller
+class FeeProposalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class AccountContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAccountContactRequest  $request
+     * @param  \App\Http\Requests\StoreFeeProposalRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAccountContactRequest $request)
+    public function store(StoreFeeProposalRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class AccountContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Http\Response
      */
-    public function show(AccountContact $accountContact)
+    public function show(FeeProposal $feeProposal)
     {
         //
     }
@@ -53,10 +53,10 @@ class AccountContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Http\Response
      */
-    public function edit(AccountContact $accountContact)
+    public function edit(FeeProposal $feeProposal)
     {
         //
     }
@@ -64,11 +64,11 @@ class AccountContactController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAccountContactRequest  $request
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Http\Requests\UpdateFeeProposalRequest  $request
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAccountContactRequest $request, AccountContact $accountContact)
+    public function update(UpdateFeeProposalRequest $request, FeeProposal $feeProposal)
     {
         //
     }
@@ -76,10 +76,10 @@ class AccountContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AccountContact $accountContact)
+    public function destroy(FeeProposal $feeProposal)
     {
         //
     }

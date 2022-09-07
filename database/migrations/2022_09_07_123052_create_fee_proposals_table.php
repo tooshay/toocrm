@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('fee_proposals', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\Project::class);
+            $table->text('fees')->nullable();
+            $table->text('scope')->nullable();
+            $table->text('items_included')->nullable();
+            $table->text('exclusions')->nullable();
+            $table->text('rates_for_additional_work')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('fee_proposals');
     }
 };

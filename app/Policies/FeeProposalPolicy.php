@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\AccountContact;
+use App\Models\FeeProposal;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class AccountContactPolicy
+class FeeProposalPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class AccountContactPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, AccountContact $accountContact)
+    public function view(User $user, FeeProposal $feeProposal)
     {
         //
     }
@@ -48,10 +48,10 @@ class AccountContactPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, AccountContact $accountContact)
+    public function update(User $user, FeeProposal $feeProposal)
     {
         //
     }
@@ -60,10 +60,10 @@ class AccountContactPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, AccountContact $accountContact)
+    public function delete(User $user, FeeProposal $feeProposal)
     {
         //
     }
@@ -72,10 +72,10 @@ class AccountContactPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, AccountContact $accountContact)
+    public function restore(User $user, FeeProposal $feeProposal)
     {
         //
     }
@@ -84,10 +84,10 @@ class AccountContactPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\AccountContact  $accountContact
+     * @param  \App\Models\FeeProposal  $feeProposal
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, AccountContact $accountContact)
+    public function forceDelete(User $user, FeeProposal $feeProposal)
     {
         //
     }
