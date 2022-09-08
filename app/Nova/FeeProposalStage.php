@@ -48,7 +48,7 @@ class FeeProposalStage extends Resource
             Select::make('Stage')->options([0, 1, 2, 3, 4, 5, 6]),
             Text::make('Stage Name')->nullable(),
             Date::make('Expected Completion Date'),
-            HasMany::make('')
+            HasMany::make('Fee Proposal Stage Items', 'Items')
         ];
     }
 

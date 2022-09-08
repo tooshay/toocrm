@@ -2,7 +2,11 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class FeeProposalStageItem extends Resource
@@ -40,6 +44,11 @@ class FeeProposalStageItem extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Name')->nullable(),
+            Text::make('Description')->nullable(),
+            HasMany::make('Fee Proposal Stage Item Resource', 'Resource'),
+            Boolean::make('Paid'),
+            Date::make('Paid on')->readonly()
         ];
     }
 
