@@ -10,6 +10,11 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'expected_delivery_date' => 'date',
+        'delivery_date' => 'date',
+    ];
+
     public function feeProposal(): HasOne
     {
         return $this->hasOne(FeeProposal::class);

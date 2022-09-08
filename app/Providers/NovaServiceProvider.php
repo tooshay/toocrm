@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Nova\FeeProposal;
+use App\Nova\Project;
+use App\Nova\User;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
@@ -29,6 +32,22 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ->withAuthenticationRoutes()
                 ->withPasswordResetRoutes()
                 ->register();
+    }
+
+    /**
+     * Register the application's Nova resources.
+     *
+     * @return void
+     */
+    protected function resources()
+    {
+        Nova::resourcesIn(app_path('Nova'));
+
+        Nova::resources([
+            User::class,
+            FeeProposal::class,
+            Project::class,
+        ]);
     }
 
     /**
