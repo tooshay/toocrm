@@ -30,5 +30,8 @@ class RoleSeeder extends Seeder
                 'name' => $permission,
             ]);
         }
+
+        // Super admin can do all
+        Role::firstWhere('name', RoleEnum::superAdmin())->givePermissionTo(Permission::all());
     }
 }

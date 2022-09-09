@@ -6,11 +6,7 @@ use Closure;
 use Spatie\Enum\Laravel\Enum;
 
 /**
- * @method static self default()
- * @method static self admin()
- * @method static self attendee()
- * @method static self host()
- * @method static self moderator()
+ * @method static self client()
  * @method static self staff()
  * @method static self superAdmin()
  */
