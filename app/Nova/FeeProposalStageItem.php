@@ -18,12 +18,14 @@ class FeeProposalStageItem extends Resource
      */
     public static $model = \App\Models\FeeProposalStageItem::class;
 
+    public static $displayInNavigation = false;
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -31,7 +33,7 @@ class FeeProposalStageItem extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'name'
     ];
 
     /**

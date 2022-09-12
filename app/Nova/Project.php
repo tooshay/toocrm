@@ -2,9 +2,13 @@
 
 namespace App\Nova;
 
+use App\Enums\ProjectStatusEnum;
+use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -23,7 +27,7 @@ class Project extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -45,11 +49,19 @@ class Project extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name'),
+            Text::make('Name')->required(),
             Textarea::make('Description')->nullable(),
             Date::make('Expected Delivery Date')->nullable(),
             Date::make('Delivery Date')->nullable(),
-            HasMany::make('Fee Proposal')
+            Select::make('Status')->options(ProjectStatusEnum::toLabels(), ProjectStatusEnum::toValues()),
+            Currency::make('Value')->currency('GBP')->nullable(),
+            Number::make('Fee Rate')->nullable()->min(1)->max(100)->step(1)->withMeta([
+                'extraAttributes' => [
+                    'placeholder' => '%',
+                ],
+            ]),
+            Currency::make('Fee Value')->currency('GBP')->nullable(),
+            HasOne::make('Fee Proposal')
         ];
     }
 

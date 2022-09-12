@@ -2,7 +2,6 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -19,12 +18,21 @@ class FeeProposalStage extends Resource
      */
     public static $model = \App\Models\FeeProposalStage::class;
 
+    public static $displayInNavigation = false;
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'stage';
+
+    public function title(): string
+    {
+        return 'Stage ' . $this->stage;
+    }
+
+
 
     /**
      * The columns that should be searched.
@@ -32,7 +40,7 @@ class FeeProposalStage extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'stage_name', 'stage'
     ];
 
     /**

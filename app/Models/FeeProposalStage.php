@@ -11,6 +11,11 @@ class FeeProposalStage extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'expected_completion_date' => 'date',
+        'completed' => 'date',
+    ];
+
     public function FeeProposal(): BelongsTo
     {
         return $this->belongsTo(FeeProposal::class);

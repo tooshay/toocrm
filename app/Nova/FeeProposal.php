@@ -17,12 +17,10 @@ class FeeProposal extends Resource
      */
     public static $model = \App\Models\FeeProposal::class;
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
-    public static $title = 'id';
+    public function title(): string
+    {
+        return $this->project->name;
+    }
 
     /**
      * The columns that should be searched.
@@ -42,7 +40,7 @@ class FeeProposal extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable()->onlyOnIndex(),
             Textarea::make('Fees')->nullable(),
             Markdown::make('Scope')->nullable(),
             Markdown::make('Items Included')->nullable(),
