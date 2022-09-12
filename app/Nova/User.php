@@ -5,9 +5,12 @@ namespace App\Nova;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Vyuldashev\NovaPermission\Permission;
+use Vyuldashev\NovaPermission\Role;
 
 class User extends Resource
 {
@@ -57,6 +60,9 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),
+
+            MorphToMany::make('Roles', 'roles', Role::class),
+            MorphToMany::make('Permissions', 'permissions', Permission::class),
         ];
     }
 

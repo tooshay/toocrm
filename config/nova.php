@@ -100,6 +100,7 @@ return [
 
     'middleware' => [
         'web',
+        \Vyuldashev\NovaPermission\NovaPermissionTool::class,
         HandleInertiaRequests::class,
         DispatchServingNovaEvent::class,
         BootTools::class,
