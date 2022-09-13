@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\User::class);
             $table->foreignIdFor(\App\Models\FeeProposalStageItem::class);
             $table->integer('hours')->default(0);
+            $table->decimal('rate')->nullable()->default(0);
             $table->timestamps();
         });
     }

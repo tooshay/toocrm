@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class FeeProposalStageItem extends Model
 {
     use HasFactory;
 
-    public function resource(): HasMany
+    public function resource(): HasOne
     {
-        return $this->hasMany(FeeProposalStageItemResource::class);
+        return $this->hasOne(FeeProposalStageItemResource::class);
     }
 
     public function feeProposalStage(): BelongsTo

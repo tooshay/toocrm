@@ -2,6 +2,9 @@
 
 namespace App\Nova;
 
+use App\Enums\RoleEnum;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -25,15 +28,6 @@ class FeeProposalStageItemResource extends Resource
     public static $title = 'id';
 
     /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
-    public static $search = [
-        'id',
-    ];
-
-    /**
      * Get the fields displayed by the resource.
      *
      * @param NovaRequest $request
@@ -42,8 +36,9 @@ class FeeProposalStageItemResource extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            HasMany::make(User::class)->nullable(),
-            Number::make('hours')->nullable()
+            BelongsTo::make('Resource', 'employee', '\App\Nova\User')->nullable(),
+            Number::make('hours')->nullable(),
+            Currency::make('rate')->nullable()
         ];
     }
 

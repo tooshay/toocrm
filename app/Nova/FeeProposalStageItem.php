@@ -6,6 +6,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -50,7 +51,7 @@ class FeeProposalStageItem extends Resource
             Text::make('Name')->nullable(),
             Text::make('Description')->nullable(),
             Currency::make('price')->nullable(),
-            HasMany::make('Fee Proposal Stage Item Resource', 'Resource'),
+            HasOne::make('Fee Proposal Stage Item Resource', 'resource'),
             Date::make('Paid on')->nullable(),
         ];
     }
