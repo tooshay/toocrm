@@ -3,7 +3,6 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -43,7 +42,7 @@ class FeeProposalStageItemResource extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            HasMany::make(\App\Models\User::class)->nullable(),
+            HasMany::make(User::class)->nullable(),
             Number::make('hours')->nullable()
         ];
     }

@@ -21,9 +21,9 @@ return new class extends Migration
             $table->date('expected_delivery_date')->nullable();
             $table->date('delivery_date')->nullable();
             $table->enum('status', ProjectStatusEnum::toValues())->default(ProjectStatusEnum::lead());
-            $table->decimal('value')->nullable();
+            $table->decimal('value', 12, 2)->nullable();
             $table->integer('fee_rate')->nullable();
-            $table->decimal('fee_value')->nullable();
+            $table->decimal('fee_value', 12, 2)->nullable();
             $table->timestamps();
         });
     }

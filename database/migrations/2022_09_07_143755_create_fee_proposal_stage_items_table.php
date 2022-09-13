@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\FeeProposalStage::class);
             $table->string('name')->nullable();
             $table->text('description')->nullable();
-            $table->decimal('price');
+            $table->decimal('price')->nullable()->default(0);
             $table->date('completed_on')->nullable();
             $table->date('paid_on')->nullable();
             $table->timestamps();

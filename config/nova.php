@@ -100,7 +100,7 @@ return [
 
     'middleware' => [
         'web',
-        \Vyuldashev\NovaPermission\NovaPermissionTool::class,
+        \Vyuldashev\NovaPermission\ForgetCachedPermissions::class,
         HandleInertiaRequests::class,
         DispatchServingNovaEvent::class,
         BootTools::class,
@@ -163,15 +163,15 @@ return [
     |
     */
 
-    // 'brand' => [
-    //     'logo' => resource_path('/img/example-logo.svg'),
+    'brand' => [
+         'logo' => resource_path('/plain_assets/ss_logo_white.svg'),
 
     //     'colors' => [
     //         "400" => "24, 182, 155, 0.5",
     //         "500" => "24, 182, 155",
     //         "600" => "24, 182, 155, 0.75",
     //     ]
-    // ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
