@@ -2,10 +2,8 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -35,13 +33,13 @@ class FeeProposalStageItem extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name'
+        'id', 'name',
     ];
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -59,7 +57,7 @@ class FeeProposalStageItem extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -70,7 +68,7 @@ class FeeProposalStageItem extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -81,7 +79,7 @@ class FeeProposalStageItem extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -92,7 +90,7 @@ class FeeProposalStageItem extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function actions(NovaRequest $request)

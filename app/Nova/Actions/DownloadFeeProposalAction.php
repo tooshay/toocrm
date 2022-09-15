@@ -2,7 +2,6 @@
 
 namespace App\Nova\Actions;
 
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
@@ -17,8 +16,8 @@ class DownloadFeeProposalAction extends Action
     /**
      * Perform the action on the given models.
      *
-     * @param ActionFields $fields
-     * @param Collection $models
+     * @param  ActionFields  $fields
+     * @param  Collection  $models
      * @return mixed
      */
     public function handle(ActionFields $fields, Collection $models)
@@ -27,7 +26,7 @@ class DownloadFeeProposalAction extends Action
         $created = $invoiceController->generateInvoices($models, false);
         $path = $invoiceController->makePDF($models);
 
-        return Action::download(url($path), uniqid() . '.pdf');
+        return Action::download(url($path), uniqid().'.pdf');
     }
 
     /**
@@ -37,13 +36,13 @@ class DownloadFeeProposalAction extends Action
      */
     public function name(): string
     {
-        return ('Download fee proposal');
+        return 'Download fee proposal';
     }
 
     /**
      * Get the fields available on the action.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request): array

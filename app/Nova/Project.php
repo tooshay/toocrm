@@ -36,13 +36,13 @@ class Project extends Resource
      */
     public static $search = [
         'id',
-        'name'
+        'name',
     ];
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -61,14 +61,14 @@ class Project extends Resource
                 ],
             ]),
             Currency::make('Fee Value')->currency('GBP')->nullable(),
-            HasOne::make('Fee Proposal')
+            HasOne::make('Fee Proposal'),
         ];
     }
 
     /**
      * Get the cards available for the request.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -79,7 +79,7 @@ class Project extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -90,7 +90,7 @@ class Project extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -101,7 +101,7 @@ class Project extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function actions(NovaRequest $request)

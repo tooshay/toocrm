@@ -2,10 +2,8 @@
 
 namespace App\Nova;
 
-use App\Enums\RoleEnum;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Currency;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -30,7 +28,7 @@ class FeeProposalStageItemResource extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -38,14 +36,14 @@ class FeeProposalStageItemResource extends Resource
         return [
             BelongsTo::make('Resource', 'employee', '\App\Nova\User')->nullable(),
             Number::make('hours')->nullable(),
-            Currency::make('rate')->nullable()
+            Currency::make('rate')->nullable(),
         ];
     }
 
     /**
      * Get the cards available for the request.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -56,7 +54,7 @@ class FeeProposalStageItemResource extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -67,7 +65,7 @@ class FeeProposalStageItemResource extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -78,7 +76,7 @@ class FeeProposalStageItemResource extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function actions(NovaRequest $request)

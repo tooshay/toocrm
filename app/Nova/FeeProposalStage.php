@@ -29,10 +29,8 @@ class FeeProposalStage extends Resource
 
     public function title(): string
     {
-        return 'Stage ' . $this->stage;
+        return 'Stage '.$this->stage;
     }
-
-
 
     /**
      * The columns that should be searched.
@@ -40,13 +38,13 @@ class FeeProposalStage extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'stage_name', 'stage'
+        'id', 'stage_name', 'stage',
     ];
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -56,14 +54,14 @@ class FeeProposalStage extends Resource
             Select::make('Stage')->options([0, 1, 2, 3, 4, 5, 6]),
             Text::make('Stage Name')->nullable(),
             Date::make('Expected Completion Date'),
-            HasMany::make('Fee Proposal Stage Items', 'Items')
+            HasMany::make('Fee Proposal Stage Items', 'Items'),
         ];
     }
 
     /**
      * Get the cards available for the request.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -74,7 +72,7 @@ class FeeProposalStage extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -85,7 +83,7 @@ class FeeProposalStage extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -96,7 +94,7 @@ class FeeProposalStage extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  NovaRequest  $request
      * @return array
      */
     public function actions(NovaRequest $request)

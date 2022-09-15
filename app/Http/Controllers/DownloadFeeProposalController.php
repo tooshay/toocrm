@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class DownloadFeeProposalController extends Controller
 {
     public function makePDF($invoices)
@@ -11,7 +9,7 @@ class DownloadFeeProposalController extends Controller
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadView('invoices.invoice', compact('invoices'));
         $id = uniqid();
-        $path = '/storage/tmp/invoices/'. $id .'.pdf';
+        $path = '/storage/tmp/invoices/'.$id.'.pdf';
         $pdf->save(public_path($path));
 
         return $path;
