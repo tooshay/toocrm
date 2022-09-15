@@ -2,26 +2,25 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\DownloadFeeProposalAction;
-use Laravel\Nova\Fields\HasMany;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Markdown;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class FeeProposal extends Resource
+class ProjectContact extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\FeeProposal::class;
+    public static $model = \App\Models\ProjectContact::class;
 
-    public function title(): string
-    {
-        return $this->project->name;
-    }
+    /**
+     * The single value that should be used to represent the resource when being displayed.
+     *
+     * @var string
+     */
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -35,26 +34,20 @@ class FeeProposal extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param NovaRequest $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable()->onlyOnIndex(),
-            Textarea::make('Fees')->nullable(),
-            Markdown::make('Scope')->nullable(),
-            Markdown::make('Items Included')->nullable(),
-            Markdown::make('Exclusions')->nullable(),
-            Textarea::make('Rates For Additional Work')->nullable(),
-            HasMany::make('Fee Proposal Stages', 'stages')
+            ID::make()->sortable(),
         ];
     }
 
     /**
      * Get the cards available for the request.
      *
-     * @param NovaRequest $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -65,7 +58,7 @@ class FeeProposal extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -76,7 +69,7 @@ class FeeProposal extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -87,13 +80,11 @@ class FeeProposal extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param NovaRequest $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function actions(NovaRequest $request)
     {
-        return [
-            new DownloadFeeProposalAction(),
-        ];
+        return [];
     }
 }
