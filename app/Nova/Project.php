@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Enums\ProjectStatusEnum;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -61,6 +62,7 @@ class Project extends Resource
                 ],
             ]),
             Currency::make('Fee Value')->currency('GBP')->nullable(),
+            HasMany::make('Project Contacts', 'contacts'),
             HasOne::make('Fee Proposal'),
         ];
     }
