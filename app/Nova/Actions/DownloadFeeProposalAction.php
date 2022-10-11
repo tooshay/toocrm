@@ -23,7 +23,7 @@ class DownloadFeeProposalAction extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         $invoiceController = new \App\Http\Controllers\DownloadFeeProposalController();
-        $created = $invoiceController->generateInvoices($models, false);
+       // $created = $invoiceController->generateInvoices($models, false);
         $path = $invoiceController->makePDF($models);
 
         return Action::download(url($path), uniqid().'.pdf');

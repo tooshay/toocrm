@@ -38,6 +38,7 @@ class Project extends Resource
     public static $search = [
         'id',
         'name',
+        'description'
     ];
 
     /**
